@@ -1,4 +1,7 @@
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+![Badge](https://img.shields.io/github/license/Matheuszl/match-simulator-Valorant?style=for-the-badge)
+
 # Projeto de desenvolvimento de Algoritimo 👨‍💻
 ****
 

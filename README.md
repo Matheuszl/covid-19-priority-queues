@@ -1,5 +1,5 @@
 
-# Projeto de desenvolvimento d Algoritimo 👨‍💻
+# Projeto de desenvolvimento de Algoritimo 👨‍💻
 ****
 
 ### O desafio 

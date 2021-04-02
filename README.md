@@ -1,6 +1,8 @@
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Badge](https://img.shields.io/github/license/Matheuszl/match-simulator-Valorant?style=for-the-badge)
+
 
 # Projeto de desenvolvimento de Algoritimo 👨‍💻
 ****

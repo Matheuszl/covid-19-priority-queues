@@ -20,20 +20,3 @@
 
 > O processo de desenvolvimento desde a escolha do algoritimo até a apresentaçao final dos rsultados, tem como referencia o livro **The Algorithm Design Manual**
 
-
-### Desenvolvimento em sprints de 1 semana:
-1️⃣Pré-projeto.
-
-2️⃣Projeto
-
-3️⃣Implementação
-
-4️⃣Projeto de avaliação
-
-5️⃣Avaliação analítica
-
-6️⃣Avaliação experimental 
-
-7️⃣Resultados 
-
-8️⃣Apresentação final

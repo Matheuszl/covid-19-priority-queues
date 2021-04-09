@@ -14,9 +14,15 @@
 	
 > O algoritmo escolhido para resolver o problema será o **Binary Heap**.
 
-> Justifica-se o uso desse algoritmo, devido sua implementação usar uma árvore completa, sendo adequado para armazenar dados em matriz. Além disso, esse algoritmo conta com Min Heap e/ou Max Heap, e para aplicações em Fila de Prioridade oferece suporte a operações _insert(), delete(), extractmax() e reduceKey(), em tempo 0(logn)_. Assim o algoritmo deve resolver o problema e cumprir o objetivo, que é o tratamento das informações, como ler dado a dado retornando uma prioridade para cada um, assim teremos por final uma fila de dados organizada por prioridade.
+> Justifica-se o uso desse algoritmo, devido sua implementação usar uma árvore completa, sendo adequado para armazenar dados em matriz. Além disso, esse algoritmo conta com Min Heap e/ou Max Heap. Assim o algoritmo deve resolver o problema e cumprir o objetivo, que é o tratamento das informações, como ler dado a dado retornando uma prioridade para cada um, assim teremos por final uma fila de dados organizada por prioridade.
 
 ### O MOCHILEIRO DO ALGORITIMO 💼
 
 > O processo de desenvolvimento desde a escolha do algoritimo até a apresentaçao final dos rsultados, tem como referencia o livro **The Algorithm Design Manual**
+> 
+
+### Proximas etapas do desenvolvimento: 
+> [] Avaliar novos metodos de lidar com a idade das pessoas
+> [] Distribuição de idade no Brasil
+> [] Priorização por classe de trabalho como exemplo: segurança publica e saude.
 

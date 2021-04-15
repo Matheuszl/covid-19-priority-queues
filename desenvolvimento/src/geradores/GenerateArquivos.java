@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class Gerador_idades {
+public class GenerateArquivos {
 	
 	/**
 	 * Construtor vazio
 	 */
-	public Gerador_idades() {
+	public GenerateArquivos() {
 
 	}
 

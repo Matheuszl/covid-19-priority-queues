@@ -8,11 +8,11 @@
 package principal;
 
 import java.util.ArrayList;
-import geradores.Gerador_idades;
+import geradores.GenerateArquivos;
 
 public class APA {
 		
-	static Gerador_idades gerador;
+	static GenerateArquivos gerador;
 	static ArrayList<Integer> idades;
 
 	public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class APA {
 
 	public static void priority() {
 
-		ArrayList<Integer> lista = Gerador_idades.ler();
+		ArrayList<Integer> lista = GenerateArquivos.ler();
 		FilaPessoa fila = new FilaPessoa(10);
 		
 
@@ -42,7 +42,7 @@ public class APA {
 		long finish = System.currentTimeMillis();
 		
 		
-		Gerador_idades.saveTime(((finish - init) / 1000d));
+		GenerateArquivos.saveTime(((finish - init) / 1000d));
 		
 		System.out.println("Finish");
 

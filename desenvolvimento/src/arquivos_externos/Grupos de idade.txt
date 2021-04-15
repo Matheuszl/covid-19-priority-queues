@@ -5,17 +5,21 @@ Fonte: https://censo2010.ibge.gov.br/sinopse/index.php?uf=43&dados=26#topo_piram
 85 a 89 anos	165	
 80 a 84 anos	383	
 75 a 79 anos	636	
-70 a 74 anos	1.060	
-65 a 69 anos	1.486	
-60 a 64 anos	2.216	
-55 a 59 anos	2.730	
-45 a 49 anos	4.077	
-40 a 44 anos	4.179	
-35 a 39 anos	4.261	
-30 a 34 anos	4.501	
-25 a 29 anos	4.866	
-20 a 24 anos	4.955	
-15 a 19 anos	5.582	
-10 a 14 anos	6.077	
-5 a 9 anos	    5.513	
-0 a 4 anos	    4.775	
+70 a 74 anos	1060	
+65 a 69 anos	1486	
+60 a 64 anos	2216
+	
+55 a 59 anos	2730
+50 a 54 anos    2500
+45 a 49 anos	4077
+
+40 a 44 anos	4179	
+35 a 39 anos	4261	
+30 a 34 anos	4501	
+25 a 29 anos	4866	
+20 a 24 anos	4955
+	
+15 a 19 anos	5582	
+10 a 14 anos	6077	
+5 a 9 anos	    5513	
+0 a 4 anos	    4775	

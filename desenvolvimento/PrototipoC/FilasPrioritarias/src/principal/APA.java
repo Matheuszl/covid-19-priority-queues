@@ -1,69 +1,36 @@
 package principal;
 
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.Random;
+import java.util.ArrayList;
+import geradores.Gerador_idades;
 
 public class APA {
+		
+	static Gerador_idades gerador;
+	static ArrayList<Integer> idades;
 
-	static int IDADE_MINIMA = 18;
-	static int IDADE_MAXIMA = 120;
-	static int QUANTIDADE_TESTE_A = 100;
-	static int QUANTIDADE_TESTE_B = 100000;
-	static int QUANTIDADE_TESTE_C = 100000000;
-	static Random GERADOR = new Random();
-
-	
-	
 	public static void main(String[] args) {
-		System.out.println("| FILA PRIORITARIA |");
 
-		FilaPessoa filaPessoa = new FilaPessoa(4);
+		ArrayList<Integer> lista = Gerador_idades.ler();
+		FilaPessoa fila = new FilaPessoa(10);
 		
 
-		long tempoInicial = System.currentTimeMillis();
-		for (int j = 0; j < QUANTIDADE_TESTE_A; j++) {
-			Pessoa pessoa = new Pessoa("teste", GERADOR.nextInt((IDADE_MAXIMA - IDADE_MINIMA) + 1) + IDADE_MINIMA);
-			filaPessoa.enfileirar(pessoa);
+		int i = 0;
+		for (@SuppressWarnings("unused") Integer idade : lista) {
+			Pessoa pessoa = new Pessoa("Pessoa ", lista.get(i));
+			fila.enfileirar(pessoa);
+			i++;
 		}
-		long tempoFinal = System.currentTimeMillis();
-
-		long tempoInicialDesenpilha = System.currentTimeMillis();
-		for (int i = 0; i < QUANTIDADE_TESTE_A; i++) {
-			Pessoa saida = filaPessoa.desenfileirar();
+		
+		long init = System.currentTimeMillis();
+		for (@SuppressWarnings("unused") Integer idade : lista) {
+			Pessoa saida = fila.desenfileirar();
 			System.out.println(saida.toString());
+			i++;
 		}
-		long tempoFinalDesenpilha = System.currentTimeMillis();
-
-		System.out.printf("Tempo de cadastro: %.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
-		System.out.printf("Tempo de Prioridade: %.3f ms%n", (tempoFinalDesenpilha - tempoInicialDesenpilha) / 1000d);
+		long finish = System.currentTimeMillis();
 		
-		salvar(tempoFinalDesenpilha, tempoInicialDesenpilha);
-
-	}
-
-	/**
-	 * Salva em txt um historico de tempo em tempo/ms para futuras analise de dados.
-	 * 
-	 * @param tempoFinal tempo de inicio do cadastro
-	 * @param tempoInicial tempo do final do cadastro
- 	 */
-	public static void salvar(double tempoFinal, double tempoInicial) {
-
-		try {
-
-			FileWriter arq = new FileWriter("C:/Users/matza/Desktop/DadosSaida.txt", true);
-			PrintWriter gravarArq = new PrintWriter(arq);
-			double gravarTempoEntrada = (tempoFinal - tempoInicial) / 1000d;
-			String str = Double.toString(gravarTempoEntrada);
-			gravarArq.printf(str + "\n");
-
-			arq.close();
-
-		} catch (Exception e) {
-			
-		}
-
+		
+		Gerador_idades.saveTime(((finish - init) / 1000d));
 	}
 
 }

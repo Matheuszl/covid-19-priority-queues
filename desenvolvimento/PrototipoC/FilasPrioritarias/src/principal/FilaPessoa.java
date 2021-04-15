@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.Arrays;
+
 /**
  * Classe fila prioritaria
  * @author matza
@@ -29,6 +31,8 @@ public class FilaPessoa {
 		this.fila = new Pessoa[size];
 		this.ultima_possicao = 0;
 	}
+	
+	
 	
 	/**
 	 * Complexibilidade de 0(n) pra enfileirar
@@ -194,4 +198,14 @@ public class FilaPessoa {
 		fila[indexB] = aux;
 		
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "FilaPessoa [fila=" + Arrays.toString(fila) + "]";
+	}
+	
+	
+
 }

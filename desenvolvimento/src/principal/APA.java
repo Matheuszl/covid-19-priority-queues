@@ -1,4 +1,4 @@
- /* Version information   2.0
+/* Version information   2.0
  *
  * Date                  13/04/2021
  *
@@ -16,6 +16,11 @@ public class APA {
 	static ArrayList<Integer> idades;
 
 	public static void main(String[] args) {
+		priority();
+			
+	}
+
+	public static void priority() {
 
 		ArrayList<Integer> lista = Gerador_idades.ler();
 		FilaPessoa fila = new FilaPessoa(10);
@@ -40,6 +45,7 @@ public class APA {
 		Gerador_idades.saveTime(((finish - init) / 1000d));
 		
 		System.out.println("Finish");
+
 	}
 
 }

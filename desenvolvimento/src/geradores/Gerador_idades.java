@@ -78,7 +78,7 @@ public class Gerador_idades {
 			arq.close();
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 	}
@@ -88,7 +88,7 @@ public class Gerador_idades {
 		Integer idade = 0;
 
 		try {
-			BufferedReader buf = new BufferedReader(new FileReader("arquivos_externos/Idades-RS.txt"));
+			BufferedReader buf = new BufferedReader(new FileReader("/Priority_vaccination/src/arquivos_externos/Idades-RS.txt"));
 
 			String linha = "";
 
@@ -123,13 +123,13 @@ public class Gerador_idades {
 	public static void saveTime(double time) {
 
 		try {
-			FileWriter arq = new FileWriter("arquivos_externos/TemposDePriorizacao", true);
+			FileWriter arq = new FileWriter("arquivos_externos/TimesPriority", true);
 			PrintWriter gravarArq = new PrintWriter(arq);
 			gravarArq.printf(time + "\n");
 			arq.close();
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 	}

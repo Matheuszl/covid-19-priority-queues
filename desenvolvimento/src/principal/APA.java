@@ -1,3 +1,10 @@
+ /* Version information   2.0
+ *
+ * Date                  13/04/2021
+ *
+ * author                Matheus Zalamena de Lima
+ * Copyright notice      MIT
+ */
 package principal;
 
 import java.util.ArrayList;
@@ -31,6 +38,8 @@ public class APA {
 		
 		
 		Gerador_idades.saveTime(((finish - init) / 1000d));
+		
+		System.out.println("Finish");
 	}
 
 }

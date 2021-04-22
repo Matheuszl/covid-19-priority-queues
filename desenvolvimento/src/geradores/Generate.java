@@ -7,31 +7,42 @@ import java.util.Scanner;
 
 public class Generate {
 
-    private int quant;
-    private int imax;
-    private int imin;
+    private int quantPessoas; //numero de pessoas no grupo de idade
+    private int imax; //maior idade do grupo
+    private int imin; //meor idade do grupo
+    private int quantGrupos; //quantidade de grupos que voce ira cadastrar
 
     static Random GERADOR = new Random();
 
+    /**
+     * Metodo gerador de grupos de idade
+     * 1° informe quantos grupos deseja cadastrar
+     * 2° Informe a maior idade pertencente ao grupo e a menor
+     * 
+     * Exemplo: Pessoas no grupo: 20, imax=50, imin=30
+     * Ele ira salvar no arquivo 20 pessoas om idades entre 50 e 30
+     */
     public void gerar() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Pessoas no grupo: ");
-        quant = in.nextInt();
-        System.out.println("Maior idade do grupo: ");
-        imax = in.nextInt();
-        System.out.println("Menor idade do grupo: ");
-        imin = in.nextInt();
-
-        for (int i = 0; i < quant; i++) {
-            int irand = GERADOR.nextInt((imax - imin) + 1) + imin;
-            salvar(irand);
-            i++;
+        System.out.println("Quntidade de grupos para cadastro: ");
+        quantGrupos = in.nextInt();
+        for (int i = 0; i < quantGrupos; i++) {
+            System.out.println("Pessoas no grupo: ");
+            quantPessoas = in.nextInt();
+            System.out.println("Maior idade do grupo: ");
+            imax = in.nextInt();
+            System.out.println("Menor idade do grupo: ");
+            imin = in.nextInt();
+            for (int j = 0; j < quantPessoas; j++) {
+                int irand = GERADOR.nextInt((imax - imin) + 1) + imin;
+                salvar(irand);
+                j++;
+            }
         }
-
     }
 
     /**
-     * Passam a sr gravados em txt as idades da populacao do RS
+     * Passam a ser gravados em txt as idades da populacao do RS
      * 
      * @param idade
      */

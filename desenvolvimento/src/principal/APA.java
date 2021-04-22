@@ -8,6 +8,8 @@
 package principal;
 
 import java.util.ArrayList;
+
+import geradores.Generate;
 import geradores.GenerateArquivos;
 
 public class APA {
@@ -27,25 +29,22 @@ public class APA {
 		
 
 		int i = 0;
+		long init = System.currentTimeMillis();
 		for (@SuppressWarnings("unused") Integer idade : lista) {
 			Pessoa pessoa = new Pessoa("Pessoa ", lista.get(i));
 			fila.enfileirar(pessoa);
 			i++;
 		}
-		
-		long init = System.currentTimeMillis();
-		for (@SuppressWarnings("unused") Integer idade : lista) {
-			Pessoa saida = fila.desenfileirar();
-			System.out.println(saida.toString());
-			i++;
-		}
 		long finish = System.currentTimeMillis();
-		
-		
 		GenerateArquivos.saveTime(((finish - init) / 1000d));
 		
+		for (@SuppressWarnings("unused") Integer idade : lista) {
+			fila.desenfileirar();
+			//System.out.println(saida.toString());
+			i++;
+		}
+		
+
 		System.out.println("Finish");
-
 	}
-
 }

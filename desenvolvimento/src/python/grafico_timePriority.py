@@ -7,6 +7,8 @@ valores = [21947, 14322, 12517, 5230, 5989]
 
 fig1, ax1 = plt.subplots()
 
+plt.title("% de pessoas por grupo de idade")
+plt.style.use('ggplot')
 explode = (0, 0, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 ax1.pie(valores, explode=explode, labels=grupos, autopct='%1.1f%%',
         shadow=True, startangle=90)

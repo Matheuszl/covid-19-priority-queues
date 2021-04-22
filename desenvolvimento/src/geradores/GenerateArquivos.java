@@ -19,7 +19,7 @@ public class GenerateArquivos {
 
 	/**
 	 * 
-	 * @return Lista de idades lids do arquivo de idades IBGE
+	 * @return Lista de idades lidas do arquivo de idades IBGE
 	 */
 	public static ArrayList<Integer> ler() {
 		ArrayList<Integer> lista = new ArrayList<Integer>();
@@ -61,7 +61,7 @@ public class GenerateArquivos {
 	public static void saveTime(double time) {
 
 		try {
-			FileWriter arq = new FileWriter("C:/Repositorios/covid-19_PriorityQueues/desenvolvimento/src/arquivos_externos/TimesPriority.txt", true);
+			FileWriter arq = new FileWriter("C:/Repositorios/covid-19_PriorityQueues/desenvolvimento/src/arquivos_externos/TimeInsertionTree.txt", true);
 			PrintWriter gravarArq = new PrintWriter(arq);
 			gravarArq.printf(time + "\n");
 			arq.close();

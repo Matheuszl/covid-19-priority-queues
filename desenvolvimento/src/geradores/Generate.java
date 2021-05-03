@@ -51,7 +51,7 @@ public class Generate {
         try {
 
             FileWriter arq = new FileWriter(
-                    "C:/Repositorios/covid-19_PriorityQueues/desenvolvimento/src/arquivos_externos/Idades-RS.txt",
+                    "src/arquivos_externos/Idades-RS.txt",
                     true);
             PrintWriter gravarArq = new PrintWriter(arq);
 
@@ -64,4 +64,42 @@ public class Generate {
         }
 
     }
+
+    public void gerarAutomatico(){
+        for (int j = 0; j < 1200; j++) {
+            int irand = GERADOR.nextInt((94 - 75) + 1) + 75;
+            salvar(irand);
+            j++;
+        }
+
+        for (int j = 0; j < 4500; j++) {
+            int irand = GERADOR.nextInt((74 - 60) + 1) + 60;
+            salvar(irand);
+            j++;
+        }
+
+        for (int j = 0; j < 11350; j++) {
+            int irand = GERADOR.nextInt((59 - 45) + 1) + 45;
+            salvar(irand);
+            j++;
+        }
+        for (int j = 0; j < 13000; j++) {
+            int irand = GERADOR.nextInt((44 - 30) + 1) + 30;
+            salvar(irand);
+            j++;
+        }
+
+        for (int j = 0; j < 17000; j++) {
+            int irand = GERADOR.nextInt((29 - 15) + 1) + 15;
+            salvar(irand);
+            j++;
+        }
+
+        for (int j = 0; j < 20300; j++) {
+            int irand = GERADOR.nextInt((14 - 0) + 1) + 15;
+            salvar(irand);
+            j++;
+        }
+    }
 }
+

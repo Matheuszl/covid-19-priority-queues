@@ -1,16 +1,8 @@
 package principal;
 
-import java.util.Arrays;
+public class FilaGrupos {
 
-/**
- * Classe fila prioritaria
- * 
- * @author matza
- *
- */
-public class FilaPessoa {
-
-	// vetor de Pessoa aonde armazena os integrantes da fila
+  	// vetor de Pessoa aonde armazena os integrantes da fila
 	private Pessoa[] fila;
 	// index usado para percorrer a fila fazendo as operacoes
 	private int ultima_possicao;
@@ -29,7 +21,7 @@ public class FilaPessoa {
 	 * @param fila
 	 * @param ultima_possicao
 	 */
-	public FilaPessoa(Integer size) {
+	public FilaGrupos(Integer size) {
 		this.fila = new Pessoa[size];
 		this.ultima_possicao = 0;
 	}
@@ -97,7 +89,7 @@ public class FilaPessoa {
 		int index = ultima_possicao;
 		int indexPai = getPai(index);
 
-		while (indexPai > 0 && fila[index].getIdade() > fila[indexPai].getIdade()) {
+		while (indexPai > 0 && fila[index].getGrupo() > fila[indexPai].getGrupo()) {
 			troca(index, indexPai);
 			index = indexPai;
 			indexPai = getPai(indexPai);
@@ -116,13 +108,13 @@ public class FilaPessoa {
 			
 			int indexEsquerda = getFilhoEsquerda(index);
 			
-			if (indexEsquerda > 0 && pessoaMaior.getIdade() < fila[indexEsquerda].getIdade()) {
+			if (indexEsquerda > 0 && pessoaMaior.getGrupo() < fila[indexEsquerda].getGrupo()) {
 				pessoaMaior = fila[indexEsquerda];
 				indexMaior = indexEsquerda;
 			}
 
 			int indexDireita = getFilhoDireita(index);
-			if (indexDireita > 0 && pessoaMaior.getIdade() < fila[indexDireita].getIdade()) {
+			if (indexDireita > 0 && pessoaMaior.getGrupo() < fila[indexDireita].getGrupo()) {
 				pessoaMaior = fila[indexDireita];
 				indexMaior = indexDireita;
 			}
@@ -195,5 +187,5 @@ public class FilaPessoa {
 		}
 		// return "FilaPessoa [fila=" + Arrays.toString(fila) + "]";
 	}
-
+  
 }

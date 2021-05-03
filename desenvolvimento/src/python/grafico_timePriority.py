@@ -1,18 +1,66 @@
-#Importando o pyplot
+import numpy as np
 import matplotlib.pyplot as plt
 
-#Sapararai por 5 grupos 0-20, 20-35, 35-50, 50-60, 60-100
-grupos = ['0 a 20', '20 a 35', '35 a 50', ' 50 e 60', '60 e 100' ]
-valores = [21947, 14322, 12517, 5230, 5989]
 
-fig1, ax1 = plt.subplots()
+import matplotlib.pyplot as plt
+import numpy as np
 
-plt.title("% de pessoas por grupo de idade")
-plt.style.use('ggplot')
-explode = (0, 0, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
-ax1.pie(valores, explode=explode, labels=grupos, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+vetor_quant_testes = [0,30,60,100,130,160,200,230,260,300,330,360,400]
+tamanho_quant_testes = len(vetor_quant_testes)
+vetor_tempos_grafico_grupos = []
+vetor_tempos_grafico_idades = []
+vetor_desvio_padrao_grupos = []
+vetor_desvio_padrao_idades = []
+i = 0
+j = 0
+
+#ABRIR ARQUIVO MEDIA DOS TEMPOS DE PRIORIDADE POR GRUPOS
+with open("src/arquivos_externos/tempo_grupos.txt","r") as arquivo:
+    for valor in arquivo:
+        valor = valor.rstrip()
+        auxiliar = float(valor)
+        vetor_tempos_grafico_grupos.append(auxiliar)
+
+#ABRIR ARQUIVO desvio padrao DOS TEMPOS DE PRIORIDADE POR GRUPOS
+with open("src/arquivos_externos/desvio_padrao_grupo.txt","r") as arquivo:
+    for valor in arquivo:
+        valor = valor.rstrip()
+        auxiliar = float(valor)
+        vetor_desvio_padrao_grupos.append(auxiliar)
+
+#ABRIR ARQUIVO desvio padrao DOS TEMPOS DE PRIORIDADE POR IDADES
+with open("src/arquivos_externos/desvio_padrao_idade.txt","r") as arquivo:
+    for valor in arquivo:
+        valor = valor.rstrip()
+        auxiliar = float(valor)
+        vetor_desvio_padrao_idades.append(auxiliar)
+
+#ABRIR ARQUIVO MEDIA DOS TEMPOS DE PRIORIDADE POR IDADE
+with open("src/arquivos_externos/tempo_idades.txt","r") as arquivo:
+    for valor in arquivo:
+        valor = valor.rstrip()
+        auxiliar = float(valor)
+        vetor_tempos_grafico_idades.append(auxiliar)
 
 
-plt.show()
+
+# Visualizar gráfico
+def grafico():
+        x = np.linspace(0, 0.35, tamanho_quant_testes)
+        plt.style.use('seaborn')
+        fig, ax = plt.subplots()
+
+        plt.plot(vetor_quant_testes, vetor_tempos_grafico_idades, 'go', color='red')
+        ax.errorbar(vetor_quant_testes, vetor_tempos_grafico_idades, vetor_desvio_padrao_idades, color='red', label="Tempo de processamento (idades)")
+        plt.plot(vetor_quant_testes, vetor_tempos_grafico_grupos, 'go', color='blue') 
+        ax.errorbar(vetor_quant_testes, vetor_tempos_grafico_grupos, vetor_desvio_padrao_grupos, color='blue', label="Tempo de processamento (grupos)")
+
+        plt.plot(vetor_quant_testes, x , 'b--', color='green', label="O(n log n)")
+
+        plt.legend(loc="upper left")
+        plt.xlabel('Tamanho das instancias (n)')
+        plt.ylabel('Tempo em ms')
+        plt.title('Tempo de processamento do algoritimo')
+        plt.show()
+
+grafico()

@@ -1,16 +1,10 @@
-package principal;
+package controller;
 
-import java.util.Arrays;
+import domain.Pessoa;
 
-/**
- * Classe fila prioritaria
- * 
- * @author matza
- *
- */
-public class FilaPessoa {
-
-	// vetor de Pessoa aonde armazena os integrantes da fila
+public class Fila {
+  
+  // vetor de Pessoa aonde armazena os integrantes da fila
 	private Pessoa[] fila;
 	// index usado para percorrer a fila fazendo as operacoes
 	private int ultima_possicao;
@@ -29,17 +23,17 @@ public class FilaPessoa {
 	 * @param fila
 	 * @param ultima_possicao
 	 */
-	public FilaPessoa(Integer size) {
+	public Fila(Integer size) {
 		this.fila = new Pessoa[size];
 		this.ultima_possicao = 0;
 	}
 
 	/**
-	 * Complexibilidade de 0(n) pra enfileirar
+	 * Complexibilidade de 0(n log n) pra enfileirar
 	 * 
 	 * @param Objeto pessoa com no minimo a (idade >0 e 120<)
 	 */
-	void enfileirar(Pessoa valor) {
+	public void enfileirar(Pessoa valor) {
 		/**
 		 * A ultima possicao que inicializa com 0 e soma +1 se compara com o tamanho da
 		 * fila se o tamanho da fila for maior, ele insere o elemento na possicao
@@ -66,14 +60,14 @@ public class FilaPessoa {
 	}
 
 	/**
-	 * Complexibilidade de 0(1) pra desenfileirar
+	 * Complexibilidade de 0(n log n) pra desenfileirar
 	 * 
 	 * começa checando se o ultimo elemento e nulo se for ela retorna null caso contrario
 	 * continua a execucao
 	 * 
 	 * @return
 	 */
-	Pessoa desenfileirar() {
+	public Pessoa desenfileirar() {
 		if (ultima_possicao <= 0) {
 			return null;
 		}
@@ -195,5 +189,4 @@ public class FilaPessoa {
 		}
 		// return "FilaPessoa [fila=" + Arrays.toString(fila) + "]";
 	}
-
 }

@@ -1,13 +1,8 @@
-package principal;
+package domain;
 
-/**
- * Classe de dominio
- * @author matza
- *
- */
 public class Pessoa {
-	
-	private String nome;
+  
+  private String nome;
 	private int idade;
 	private int grupo;
 	
@@ -50,8 +45,7 @@ public class Pessoa {
 	public String toString() {
 		return "Pessoa| nome:" + nome + ", idade:" + idade+", Grupo: "+grupo;
 	}
-	
-	
-	
-	
+
+    
+
 }

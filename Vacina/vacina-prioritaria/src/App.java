@@ -1,5 +1,7 @@
+/**
+ * 
+ */
 import java.util.ArrayList;
-
 import controller.Arquivos;
 import controller.Fila;
 import domain.Pessoa;
@@ -12,17 +14,22 @@ public class App {
 	static double SOMA = 0;
 	static double MEDIA = 0;
 	static int QUANT_LOOPING = 15;
+    static int COUNT;
 
     public static void main(String[] args) {
         for (int i = 0; i < QUANT_LOOPING; i++) {
-            priorizacao();
+            //priorizacao();
         }
+        apresentacao();
         
-
+        /*
         //salva dados calculados nos arquivos txt
+        //se nao for executado a priorizacao() antes, erro!
 		Arquivos.saveDesvioIdade(calculoDesvio());
 		Arquivos.saveTempoIdades(MEDIA);
+        System.out.println(COUNT+" instancias Priorizados em: "+MEDIA);
 		System.out.println("Finish");
+        */
     }
 
     /**
@@ -32,6 +39,7 @@ public class App {
     public static void priorizacao() {
         // ArrayList que salva as idades lidas do arquivo idades.txt
         ArrayList<Integer> lista = leitura.ler();
+        COUNT = lista.size();
         // instancia da classe Fila
         Fila fila = new Fila(10);
         int setGrupo = 0;
@@ -39,7 +47,7 @@ public class App {
 
         for (int j = 0; j < lista.size(); j++) {
             int getIdade = lista.get(j);
-
+            
             if (getIdade <= 94 && getIdade >= 65) {
                 setGrupo = 5;
             } else if (getIdade <= 64 && getIdade >= 45) {
@@ -95,8 +103,14 @@ public class App {
 		double resultado = somaNumeros / TEMPOS.size();
 		double desvioPadrao = Math.sqrt(resultado);
 
-		System.out.println("finish desvio/media");
+		System.out.println("Desvio padrao: "+desvioPadrao);
 
 		return desvioPadrao;
 	}
+
+
+    public static void apresentacao(){
+        System.out.println("|Algoritimo fila prioritaria usando Binary Heap| \n"+
+        " ---------------------------------------------- \n");
+    }
 }

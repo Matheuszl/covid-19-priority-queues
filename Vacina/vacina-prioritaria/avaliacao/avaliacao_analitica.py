@@ -56,7 +56,7 @@ def grafico():
         plt.legend(loc="upper left")
         plt.xlabel('Tamanho das instancias (n)')
         plt.ylabel('Tempo em ms')
-        plt.title('Tempo de processamento do algoritimo')
+        plt.title('Analise do algoritimo Priority Queue - Binary Heap')
         plt.show()
 
 grafico()

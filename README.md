@@ -17,9 +17,6 @@
 
 ### O Mochileiro do Algoritimo 💼
 
-> O processo de desenvolvimento desde a escolha do algoritimo até a apresentaçao final dos rsultados, tem como referencia o livro **The Algorithm Design Manual**
-
-
-### Analise de dados    [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+> O processo de desenvolvimento desde a escolha do algoritimo até a apresentaçao final dos rsultados, tem como referencia o livro The Algorithm Design Manual
 
 

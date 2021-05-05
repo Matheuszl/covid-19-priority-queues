@@ -1,6 +1,11 @@
+
 /**
- * 
- */
+* @author Matheus Zalamena de Lima
+* @version 3.1
+* @email matheus.zzalamena@gmail.com
+*/
+
+//imports
 import java.util.ArrayList;
 import controller.Arquivos;
 import controller.Fila;
@@ -10,26 +15,26 @@ public class App {
     // Variavis de escopo global
     static Arquivos leitura;
     static ArrayList<Integer> idades;
-	static ArrayList<Double> TEMPOS = new ArrayList<Double>();
-	static double SOMA = 0;
-	static double MEDIA = 0;
-	static int QUANT_LOOPING = 15;
+    static ArrayList<Double> TEMPOS = new ArrayList<Double>();
+    static double SOMA = 0;
+    static double MEDIA = 0;
+    static int QUANT_LOOPING = 15;
     static int COUNT;
 
     public static void main(String[] args) {
-        for (int i = 0; i < QUANT_LOOPING; i++) {
-            //priorizacao();
-        }
         apresentacao();
+        for (int i = 0; i < QUANT_LOOPING; i++) {
+            priorizacao();
+        }
         
-        /*
-        //salva dados calculados nos arquivos txt
-        //se nao for executado a priorizacao() antes, erro!
-		Arquivos.saveDesvioIdade(calculoDesvio());
-		Arquivos.saveTempoIdades(MEDIA);
-        System.out.println(COUNT+" instancias Priorizados em: "+MEDIA);
-		System.out.println("Finish");
-        */
+
+        // salva dados calculados nos arquivos txt //se nao for executado a
+        // priorizacao() antes, erro! 
+        Arquivos.saveDesvioIdade(calculoDesvio());
+        Arquivos.saveTempoIdades(MEDIA);
+        System.out.println(COUNT + " instancias Priorizados em: " + MEDIA+ "ms");
+        System.out.println("Finish");
+
     }
 
     /**
@@ -40,14 +45,13 @@ public class App {
         // ArrayList que salva as idades lidas do arquivo idades.txt
         ArrayList<Integer> lista = leitura.ler();
         COUNT = lista.size();
-        // instancia da classe Fila
+        // instancia da classe Fila pode ser altrada para FilaGrupo
         Fila fila = new Fila(10);
         int setGrupo = 0;
-        // int i = 0;
 
         for (int j = 0; j < lista.size(); j++) {
             int getIdade = lista.get(j);
-            
+
             if (getIdade <= 94 && getIdade >= 65) {
                 setGrupo = 5;
             } else if (getIdade <= 64 && getIdade >= 45) {
@@ -81,36 +85,36 @@ public class App {
     }
 
     /**
-	 * Calcula a media e salva em um array de medias
-	 * depois esse array é usado novamente para o calculo do desvio padrao
-	 */
-	public static void calculoMedia(double time){
-		SOMA = SOMA + time;
-		MEDIA = SOMA/QUANT_LOOPING;
-		TEMPOS.add(MEDIA);
-	}
+     * Calcula a media e salva em um array de medias depois esse array é usado
+     * novamente para o calculo do desvio padrao
+     */
+    public static void calculoMedia(double time) {
+        SOMA = SOMA + time;
+        MEDIA = SOMA / QUANT_LOOPING;
+        TEMPOS.add(MEDIA);
+    }
 
     /**
-	 * Calculo do desvio padrao e logo após salva no arquivo txt alem de salvar a media tambem
-	 */
-	public static double calculoDesvio(){
-		double somaNumeros = 0;
-	
-		for (int i = 0; i < QUANT_LOOPING; i++) {
-			somaNumeros += Math.pow(MEDIA - TEMPOS.get(i), 2);
-		}
+     * Calculo do desvio padrao e logo após salva no arquivo txt alem de salvar a
+     * media tambem
+     */
+    public static double calculoDesvio() {
+        double somaNumeros = 0;
 
-		double resultado = somaNumeros / TEMPOS.size();
-		double desvioPadrao = Math.sqrt(resultado);
+        for (int i = 0; i < QUANT_LOOPING; i++) {
+            somaNumeros += Math.pow(MEDIA - TEMPOS.get(i), 2);
+        }
 
-		System.out.println("Desvio padrao: "+desvioPadrao);
+        double resultado = somaNumeros / TEMPOS.size();
+        double desvioPadrao = Math.sqrt(resultado);
 
-		return desvioPadrao;
-	}
+        System.out.println("Desvio padrao: " + desvioPadrao);
 
+        return desvioPadrao;
+    }
 
-    public static void apresentacao(){
-        System.out.println("|Algoritimo fila prioritaria usando Binary Heap| \n"+
-        " ---------------------------------------------- \n");
+    public static void apresentacao() {
+        System.out.println("|Algoritimo fila prioritaria usando Binary Heap| \n"
+                + " ---------------------------------------------- \n");
     }
 }

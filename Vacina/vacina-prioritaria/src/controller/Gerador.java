@@ -93,7 +93,7 @@ public class Gerador {
   public void salvar(int idade) {
     try {
 
-      FileWriter arq = new FileWriter("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/idades.txt", true);
+      FileWriter arq = new FileWriter("model/idades.txt", true);
       PrintWriter gravarArq = new PrintWriter(arq);
 
       gravarArq.printf(idade + "\n");

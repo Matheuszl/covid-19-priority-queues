@@ -1,3 +1,8 @@
+/**
+* @author Matheus Zalamena de Lima
+* @version 3.1
+* @email matheus.zzalamena@gmail.com
+*/
 package controller;
 
 import java.io.BufferedReader;
@@ -26,7 +31,7 @@ public class Arquivos {
     Integer idade = 0;
 
     try {
-      BufferedReader buf = new BufferedReader(new FileReader("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/idades.txt"));
+      BufferedReader buf = new BufferedReader(new FileReader("model/idades.txt"));
       String linha = "";
 
       while (true) {
@@ -60,7 +65,7 @@ public class Arquivos {
   public static void saveTempoIdades(double time) {
 
     try {
-      FileWriter arq = new FileWriter("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/tempo_idade.txt", true);
+      FileWriter arq = new FileWriter("model/tempo_idade.txt", true);
       PrintWriter gravarArq = new PrintWriter(arq);
       gravarArq.printf(time + "\n");
       arq.close();
@@ -71,10 +76,16 @@ public class Arquivos {
 
   }
 
+  /**
+   * Salva no arquivo desv_padrao_idade.txt os desvios padrao da priorização por
+   * idade
+   * 
+   * @param time tempo priorização
+   */
   public static void saveTempoGrupos(double time) {
 
     try {
-      FileWriter arq = new FileWriter("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/tempo_grupos.txt", true);
+      FileWriter arq = new FileWriter("model/tempo_grupos.txt", true);
       PrintWriter gravarArq = new PrintWriter(arq);
       gravarArq.printf(time + "\n");
       arq.close();
@@ -94,7 +105,7 @@ public class Arquivos {
   public static void saveDesvioIdade(double time) {
 
     try {
-      FileWriter arq = new FileWriter("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/desv_padrao_idade.txt", true);
+      FileWriter arq = new FileWriter("model/desv_padrao_idade.txt", true);
       PrintWriter gravarArq = new PrintWriter(arq);
       gravarArq.printf(time + "\n");
       arq.close();
@@ -109,12 +120,12 @@ public class Arquivos {
    * Salva no arquivo desvio_padrao_idade.txt os desvios padrao da priorização por
    * grupos
    * 
-   * @param time tempo priorização
+   * @param time valor calculado no desvio
    */
   public static void saveDesvioGrupo(double time) {
 
     try {
-      FileWriter arq = new FileWriter("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/desv_padrao_grupo.txt", true);
+      FileWriter arq = new FileWriter("model/desv_padrao_grupo.txt", true);
       PrintWriter gravarArq = new PrintWriter(arq);
       gravarArq.printf(time + "\n");
       arq.close();

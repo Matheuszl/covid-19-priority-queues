@@ -14,8 +14,8 @@ aproximados = []
 auxiliar = []
 i = 0
 j = 0
-intervalo = np.linspace(0, 0.35, tamanho_quant_testes)
-intervalo_n = np.linspace(0, 400, tamanho_quant_testes)
+intervalo = np.linspace(1, 0.35, tamanho_quant_testes)
+intervalo_n = np.linspace(1, 400, tamanho_quant_testes)
 
 #ABRIR ARQUIVO MEDIA DOS TEMPOS DE PRIORIDADE POR GRUPOS
 with open("C:/Users/matza/Desktop/Vacina/vacina-prioritaria/src/model/tempo_grupo.txt","r") as arquivo:
@@ -55,26 +55,17 @@ def funcao_Onlogn(n, cpu):
     result_log = np.log(n)
     log_convertido = abs(result_log)
     print(log_convertido)
-    return (n * log_convertido)
+    return (n * result_log)
 
-def executa_aproximacao_idade():
-    #realiza aproximação
-    parametros, pcov = opt.curve_fit(
-        funcao_Onlogn, xdata=vetor_quant_testes, ydata=vetor_tempos_grafico_idades)
-    aproximados = [
-        funcao_Onlogn(x, *parametros) for x in vetor_tempos_grafico_idades
-        ]
-    
-    return aproximados
 
 def executa_aproximacao_grupo():
     #realiza aproximação
     parametros, pcov = opt.curve_fit(
-        funcao_Onlogn, xdata=vetor_quant_testes, ydata=vetor_tempos_grafico_grupos)
+        funcao_Onlogn, xdata=intervalo_n, ydata=vetor_tempos_grafico_grupos)
     aproximados = [
-        funcao_Onlogn( x, *parametros) for x in intervalo
+        funcao_Onlogn( x, *parametros) for x in intervalo_n
         ]
-    aproximados.reverse()
+    #aproximados.reverse()
     print("Array is :",aproximados)
     return aproximados
 
@@ -84,26 +75,17 @@ def executa_aproximacao_grupo():
 
 # Visualizar gráfico
 def grafico():
-        aproxGrupos = np.polyfit(vetor_quant_testes, vetor_tempos_grafico_grupos,2)
-        aproxIdades = np.polyfit(vetor_quant_testes, vetor_tempos_grafico_idades,2)
-        aprox_final_grupos = np.poly1d(aproxGrupos)
-        aprox_final_idades = np.poly1d(aproxIdades)
         x_s = np.arange(0,400)
-        ls = 'dotted'
-        
+        ls = 'dotted'   
         plt.style.use('seaborn')
         fig, ax = plt.subplots()
         #plt.plot(vetor_quant_testes, executa_aproximacao_idade(),color='lightcoral', label="Aproximação O(n log n) por idade")
-        #plt.plot(vetor_quant_testes, executa_aproximacao_grupo(),color='cornflowerblue', label="Aproximação O(n log n) por grupo")
-        #plt.plot(intervalo_n, intervalo , color='black', label='teste')
-        #plt.plot(x_s,aprox_final_grupos(x_s),color='cornflowerblue', label='Aproximação O(n log n) por grupo')
-        #plt.plot(x_s,aprox_final_idades(x_s),color="lightcoral", label='Aproximação O(n log n) por idade')
-        plt.plot(vetor_quant_testes, vetor_tempos_grafico_idades, 'go', color='red', label="Tempo de processamento (idades)")
-        ax.errorbar(vetor_quant_testes, vetor_tempos_grafico_idades, vetor_desvio_padrao_idades, color='red',label="Desvio padrao (idades)")
-        plt.plot(vetor_quant_testes, vetor_tempos_grafico_grupos, 'go', color='blue', label="Tempo de processamento (grupos)") 
-        ax.errorbar(vetor_quant_testes, vetor_tempos_grafico_grupos, vetor_desvio_padrao_grupos, color='blue',label="Desvio padrao (grupos)")
+        plt.plot(intervalo_n, executa_aproximacao_grupo(),color='cornflowerblue', label="Aproximação O(n log n) por grupo")
 
-        #plt.plot(vetor_quant_testes, intervalo , 'b--', color='green', label="O(n log n)")
+        plt.plot(vetor_quant_testes, vetor_tempos_grafico_grupos, 'go', color='blue', label="Tempo de processamento (grupos)") 
+        ax.errorbar(vetor_quant_testes, vetor_tempos_grafico_grupos, vetor_desvio_padrao_grupos,linestyle=ls, color='blue')
+
+        
 
         plt.legend(loc="upper left")
         plt.xlabel('Tamanho das instancias (n) em milhares')
